@@ -127,17 +127,19 @@
 
 <script>
 
-const productos = {
-  "7500000000015": {
-    nombre: "Yogur natural de prueba",
-    marca: "Marca de prueba"
-  },
+let productos = {};
 
-  "750000000002": {
-    nombre: "Yogur griego de prueba",
-    marca: "Marca de prueba B"
+async function cargarProductos() {
+  try {
+    const respuesta = await fetch("productos.json?v=" + Date.now());
+    productos = await respuesta.json();
+    console.log("Base de productos cargada correctamente");
+  } catch (error) {
+    console.error("Error al cargar productos:", error);
   }
-};
+}
+
+cargarProductos();
 
 
 const lector = new ZXing.BrowserMultiFormatReader();
@@ -206,7 +208,7 @@ function buscarProducto(codigo) {
       <div>✅ Producto encontrado</div>
 
       <div class="producto">
-        ${producto.nombre}
+        ${producto.producto}
       </div>
 
       <div>
