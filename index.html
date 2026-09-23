@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOMP FoodScan | Escáner</title>
+
+  <script src="https://unpkg.com/@zxing/library@0.21.3"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f8fa;
+      color: #16364a;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      padding: 24px 18px;
+    }
+
+    h1 {
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      margin-top: 0;
+      color: #527080;
+    }
+
+    .scanner {
+      margin-top: 22px;
+      background: white;
+      padding: 14px;
+      border-radius: 18px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.08);
+    }
+
+    video {
+      width: 100%;
+      min-height: 260px;
+      border-radius: 14px;
+      background: #111;
+      object-fit: cover;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 15px;
+      padding: 14px;
+      border: 0;
+      border-radius: 10px;
+      background: #28769b;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #resultado {
+      margin-top: 18px;
+      padding: 14px;
+      background: #eaf5f9;
+      border-radius: 10px;
+      font-weight: bold;
+      display: none;
+    }
+
+    .ayuda {
+      font-size: 14px;
+      color: #607d8b;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>SOMP FoodScan</h1>
+    <p class="subtitle">Conoce. Compara. Decide.</p>
+
+    <div class="scanner">
+
+      <h2>Escanear producto</h2>
+
+      <p>
+        Coloca el código de barras del alimento frente a la cámara.
+      </p>
+
+      <video id="video"></video>
+
+      <button id="iniciar">
+        📷 Iniciar escáner
+      </button>
+
+      <div id="resultado"></div>
+
+      <p class="ayuda">
+        SOMP FoodScan utilizará únicamente el código de barras
+        para identificar el producto.
+      </p>
+
+    </div>
+
+  </div>
+
+<script>
+
+const lector = new ZXing.BrowserMultiFormatReader();
+
+const boton = document.getElementById("iniciar");
+const resultado = document.getElementById("resultado");
+
+boton.addEventListener("click", async () => {
+
+  resultado.style.display = "block";
+  resultado.innerHTML = "Iniciando cámara...";
+
+  try {
+
+    const dispositivos =
+      await lector.listVideoInputDevices();
+
+    if (!dispositivos.length) {
+      resultado.innerHTML =
+        "No se encontró una cámara disponible.";
+      return;
+    }
+
+    const camara =
+      dispositivos[dispositivos.length - 1].deviceId;
+
+    lector.decodeFromVideoDevice(
+      camara,
+      "video",
+      (result, error) => {
+
+        if (result) {
+
+          const codigo = result.getText();
+
+          resultado.innerHTML =
+            "✅ Código detectado:<br><br>" + codigo;
+
+          lector.reset();
+
+        }
+
+      }
+    );
+
+  } catch (error) {
+
+    resultado.innerHTML =
+      "No fue posible acceder a la cámara. Revisa los permisos del navegador.";
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>
