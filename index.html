@@ -204,22 +204,52 @@ function buscarProducto(codigo) {
 
   if (producto) {
 
-    resultado.innerHTML = `
-      <div>✅ Producto encontrado</div>
+  resultado.innerHTML = `
+  <div>✅ Producto encontrado</div>
 
-      <div class="producto">
-        ${producto.producto}
-      </div>
+  <div class="producto">
+    ${producto.producto}
+  </div>
 
-      <div>
-        ${producto.marca}
-      </div>
+  <div>
+    <strong>${producto.marca}</strong>
+  </div>
 
-      <div class="codigo">
-        Código: ${codigo}
-      </div>
-    `;
+  <div class="codigo">
+    Código: ${codigo}
+  </div>
 
+  <hr>
+
+  <div style="text-align:left;">
+    <p><strong>Categoría:</strong> ${producto.categoria}</p>
+    <p><strong>Porción:</strong> ${producto.porcion}</p>
+    <p><strong>Base nutrimental:</strong> ${producto.base}</p>
+
+    <h3>Información nutrimental</h3>
+
+    <p>🔥 Energía: <strong>${producto.energia} kcal</strong></p>
+    <p>🥛 Proteína: <strong>${producto.proteina} g</strong></p>
+    <p>🌾 Carbohidratos: <strong>${producto.carbohidratos} g</strong></p>
+    <p>🌿 Fibra: <strong>${producto.fibra} g</strong></p>
+    <p>🍬 Azúcares: <strong>${producto.azucares} g</strong></p>
+    <p>🍭 Azúcares añadidos: <strong>${producto.azucares_anadidos} g</strong></p>
+    <p>🥑 Grasas totales: <strong>${producto.grasas} g</strong></p>
+    <p>Grasas saturadas: <strong>${producto.grasas_saturadas} g</strong></p>
+    <p>🧂 Sodio: <strong>${producto.sodio} mg</strong></p>
+
+    ${producto.ingredientes ? `
+      <h3>Ingredientes</h3>
+      <p>${producto.ingredientes}</p>
+    ` : ""}
+
+    <h3>💡 Orientación educativa</h3>
+    <p>${producto.orientacion}</p>
+
+    <h3>📚 Fuente de información</h3>
+    <p style="font-size:13px;">${producto.fuente}</p>
+  </div>
+`; 
   } else {
 
     resultado.innerHTML = `
