@@ -1,14 +1,61 @@
 {
   "7500000000015": {
     "producto": "Yogur natural de prueba",
-    "marca": "Marca de prueba"
+    "marca": "Marca de prueba",
+    "categoria": "Lácteos",
+    "porcion": "125 g",
+    "base": "Por 100 g",
+    "energia": 65,
+    "proteina": 4,
+    "carbohidratos": 7,
+    "fibra": 0,
+    "azucares": 6,
+    "azucares_anadidos": 0,
+    "grasas": 2.5,
+    "grasas_saturadas": 1.5,
+    "sodio": 55,
+    "ingredientes": "Leche, cultivos lácticos",
+    "orientacion": "Producto ficticio utilizado únicamente para probar el funcionamiento de SOMP FoodScan.",
+    "fuente": "Producto ficticio para fines académicos y de prueba."
   },
+
   "7500000000022": {
     "producto": "Yogur griego de prueba de comparación",
-    "marca": "Marca de prueba B"
+    "marca": "Marca de prueba B",
+    "categoria": "Lácteos",
+    "porcion": "125 g",
+    "base": "Por 100 g",
+    "energia": 82,
+    "proteina": 8,
+    "carbohidratos": 9,
+    "fibra": 0,
+    "azucares": 7,
+    "azucares_anadidos": 3,
+    "grasas": 2,
+    "grasas_saturadas": 1,
+    "sodio": 60,
+    "ingredientes": "",
+    "orientacion": "Producto ficticio utilizado únicamente para probar el funcionamiento de SOMP FoodScan.",
+    "fuente": "Producto ficticio para fines académicos y de prueba."
   },
+
   "7501032300180": {
     "producto": "Oikos Yogurt Griego Natural sin Azúcar 150 g",
-    "marca": "Oikos"
+    "marca": "Oikos",
+    "categoria": "Lácteos",
+    "porcion": "150 g",
+    "base": "Por 100 g",
+    "energia": 92.1,
+    "proteina": 5.6,
+    "carbohidratos": 5.5,
+    "fibra": 0,
+    "azucares": 5.5,
+    "azucares_anadidos": 0,
+    "grasas": 5.3,
+    "grasas_saturadas": 3.4,
+    "sodio": 53.5,
+    "ingredientes": "",
+    "orientacion": "Al comparar este producto con otros yogures, revisa la cantidad de proteína, azúcares añadidos, grasas saturadas y el tamaño de la porción. Ningún nutriente por sí solo determina si un alimento es adecuado para ti.",
+    "fuente": "Oikos México. (s. f.). Oikos Yogurt Griego Natural sin Azúcar 150 g. Información nutrimental obtenida de la página oficial del producto."
   }
 }
