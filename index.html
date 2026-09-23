@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>SOMP FoodScan | Escáner</title>
 
   <script src="https://unpkg.com/@zxing/library@0.21.3"></script>
@@ -38,7 +39,7 @@
     .scanner {
       margin-top: 22px;
       background: white;
-      padding: 14px;
+      padding: 16px;
       border-radius: 18px;
       box-shadow: 0 4px 18px rgba(0,0,0,.08);
     }
@@ -66,59 +67,84 @@
 
     #resultado {
       margin-top: 18px;
-      padding: 14px;
+      padding: 16px;
       background: #eaf5f9;
-      border-radius: 10px;
-      font-weight: bold;
+      border-radius: 12px;
       display: none;
+    }
+
+    .producto {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+
+    .codigo {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #607d8b;
     }
 
     .ayuda {
       font-size: 14px;
       color: #607d8b;
-      margin-top: 15px;
+      margin-top: 16px;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <h1>SOMP FoodScan</h1>
-    <p class="subtitle">Conoce. Compara. Decide.</p>
+  <h1>SOMP FoodScan</h1>
+  <p class="subtitle">Conoce. Compara. Decide.</p>
 
-    <div class="scanner">
+  <div class="scanner">
 
-      <h2>Escanear producto</h2>
+    <h2>Escanear producto</h2>
 
-      <p>
-        Coloca el código de barras del alimento frente a la cámara.
-      </p>
+    <p>
+      Coloca el código de barras del alimento frente a la cámara.
+    </p>
 
-      <video id="video"></video>
+    <video id="video"></video>
 
-      <button id="iniciar">
-        📷 Iniciar escáner
-      </button>
+    <button id="iniciar">
+      📷 Iniciar escáner
+    </button>
 
-      <div id="resultado"></div>
+    <div id="resultado"></div>
 
-      <p class="ayuda">
-        SOMP FoodScan utilizará únicamente el código de barras
-        para identificar el producto.
-      </p>
-
-    </div>
+    <p class="ayuda">
+      SOMP FoodScan utiliza el código de barras para
+      identificar productos registrados en su base de datos.
+    </p>
 
   </div>
 
+</div>
+
 <script>
+
+const productos = {
+  "750000000001": {
+    nombre: "Yogur natural de prueba",
+    marca: "Marca de prueba"
+  },
+
+  "750000000002": {
+    nombre: "Yogur griego de prueba",
+    marca: "Marca de prueba B"
+  }
+};
+
 
 const lector = new ZXing.BrowserMultiFormatReader();
 
 const boton = document.getElementById("iniciar");
 const resultado = document.getElementById("resultado");
+
 
 boton.addEventListener("click", async () => {
 
@@ -131,13 +157,16 @@ boton.addEventListener("click", async () => {
       await lector.listVideoInputDevices();
 
     if (!dispositivos.length) {
+
       resultado.innerHTML =
         "No se encontró una cámara disponible.";
+
       return;
     }
 
     const camara =
       dispositivos[dispositivos.length - 1].deviceId;
+
 
     lector.decodeFromVideoDevice(
       camara,
@@ -148,10 +177,9 @@ boton.addEventListener("click", async () => {
 
           const codigo = result.getText();
 
-          resultado.innerHTML =
-            "✅ Código detectado:<br><br>" + codigo;
-
           lector.reset();
+
+          buscarProducto(codigo);
 
         }
 
@@ -166,6 +194,48 @@ boton.addEventListener("click", async () => {
   }
 
 });
+
+
+function buscarProducto(codigo) {
+
+  const producto = productos[codigo];
+
+  if (producto) {
+
+    resultado.innerHTML = `
+      <div>✅ Producto encontrado</div>
+
+      <div class="producto">
+        ${producto.nombre}
+      </div>
+
+      <div>
+        ${producto.marca}
+      </div>
+
+      <div class="codigo">
+        Código: ${codigo}
+      </div>
+    `;
+
+  } else {
+
+    resultado.innerHTML = `
+      <div>⚠️ Producto aún no disponible</div>
+
+      <div class="codigo">
+        Código detectado: ${codigo}
+      </div>
+
+      <p>
+        Este producto todavía no se encuentra registrado
+        en SOMP FoodScan.
+      </p>
+    `;
+
+  }
+
+}
 
 </script>
 
