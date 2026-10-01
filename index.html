@@ -339,6 +339,10 @@ function buscarProducto(codigo) {
 
     <h3>📚 Fuente de información</h3>
     <p style="font-size:13px;">${producto.fuente}</p>
+    
+    <button onclick="reiniciarEscaner()">
+  📷 Escanear otro producto
+</button>
   </div>
 `; 
   } else {
@@ -358,6 +362,12 @@ function buscarProducto(codigo) {
 
   }
 
+}
+
+  function reiniciarEscaner() {
+  resultado.style.display = "none";
+  resultado.innerHTML = "";
+  boton.click();
 }
 
 </script>
