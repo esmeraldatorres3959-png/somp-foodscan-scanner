@@ -90,6 +90,49 @@
       color: #607d8b;
       margin-top: 16px;
     }
+.nutrientes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.nutriente {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 12px 8px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+.nutriente-icono {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.nutriente-nombre {
+  font-size: 13px;
+  color: #607d8b;
+}
+
+.nutriente-valor {
+  font-size: 17px;
+  font-weight: bold;
+  color: #16364a;
+  margin-top: 3px;
+}
+
+.seccion-info {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 14px;
+  margin-top: 14px;
+}
+
+.seccion-info h3 {
+  margin-top: 0;
+}
+    
   </style>
 </head>
 
@@ -228,15 +271,63 @@ function buscarProducto(codigo) {
 
     <h3>Información nutrimental</h3>
 
-    <p>🔥 Energía: <strong>${producto.energia} kcal</strong></p>
-    <p>🥛 Proteína: <strong>${producto.proteina} g</strong></p>
-    <p>🌾 Carbohidratos: <strong>${producto.carbohidratos} g</strong></p>
-    <p>🌿 Fibra: <strong>${producto.fibra} g</strong></p>
-    <p>🍬 Azúcares: <strong>${producto.azucares} g</strong></p>
-    <p>🍭 Azúcares añadidos: <strong>${producto.azucares_anadidos} g</strong></p>
-    <p>🥑 Grasas totales: <strong>${producto.grasas} g</strong></p>
-    <p>Grasas saturadas: <strong>${producto.grasas_saturadas} g</strong></p>
-    <p>🧂 Sodio: <strong>${producto.sodio} mg</strong></p>
+<div class="nutrientes">
+
+  <div class="nutriente">
+    <div class="nutriente-icono">🔥</div>
+    <div class="nutriente-nombre">Energía</div>
+    <div class="nutriente-valor">${producto.energia} kcal</div>
+  </div>
+
+  <div class="nutriente">
+    <div class="nutriente-icono">🥛</div>
+    <div class="nutriente-nombre">Proteína</div>
+    <div class="nutriente-valor">${producto.proteina} g</div>
+  </div>
+
+  <div class="nutriente">
+    <div class="nutriente-icono">🌾</div>
+    <div class="nutriente-nombre">Carbohidratos</div>
+    <div class="nutriente-valor">${producto.carbohidratos} g</div>
+  </div>
+
+  <div class="nutriente">
+    <div class="nutriente-icono">🌿</div>
+    <div class="nutriente-nombre">Fibra</div>
+    <div class="nutriente-valor">${producto.fibra} g</div>
+  </div>
+
+  <div class="nutriente">
+    <div class="nutriente-icono">🍬</div>
+    <div class="nutriente-nombre">Azúcares</div>
+    <div class="nutriente-valor">${producto.azucares} g</div>
+  </div>
+
+  <div class="nutriente">
+    <div class="nutriente-icono">🍭</div>
+    <div class="nutriente-nombre">Azúcares añadidos</div>
+    <div class="nutriente-valor">${producto.azucares_anadidos} g</div>
+  </div>
+
+  <div class="nutriente">
+    <div class="nutriente-icono">🥑</div>
+    <div class="nutriente-nombre">Grasas totales</div>
+    <div class="nutriente-valor">${producto.grasas} g</div>
+  </div>
+
+  <div class="nutriente">
+    <div class="nutriente-icono">🧈</div>
+    <div class="nutriente-nombre">Grasas saturadas</div>
+    <div class="nutriente-valor">${producto.grasas_saturadas} g</div>
+  </div>
+
+  <div class="nutriente">
+    <div class="nutriente-icono">🧂</div>
+    <div class="nutriente-nombre">Sodio</div>
+    <div class="nutriente-valor">${producto.sodio} mg</div>
+  </div>
+
+</div>
 
     ${producto.ingredientes ? `
       <h3>Ingredientes</h3>
