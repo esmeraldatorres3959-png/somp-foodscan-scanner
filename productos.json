@@ -103,7 +103,7 @@
   "producto": "Bimbo Bran Frut Fresa 200 g",
   "marca": "Bimbo",
   "categoria": "Barras de cereal",
-  "porcion": "40 g (1 barra)",
+  "porcion": "100 g (porción declarada en la etiqueta)",
   "base": "Por 100 g",
   "energia": 401,
   "proteina": 4.8,
@@ -114,7 +114,8 @@
   "grasas": 15.8,
   "grasas_saturadas": 8.5,
   "sodio": 278,
-  "ingredientes": "Barra de cereal con relleno sabor fresa. Consultar la lista completa de ingredientes y alérgenos en el empaque.",
+ 
+  "ingredientes": "Relleno con fresa (azúcares añadidos: jarabe de glucosa y azúcar; glicerina, fresa 4%, piña, manzana deshidratada, alginato de sodio, ácido cítrico, pectina, sal yodada, saborizante natural, benzoato de sodio, carmín y extracto de annato), curcumina, harina de trigo (gluten), margarina (grasa vegetal, sal yodada, lecitina de soya, propionato sódico, saborizantes), salvado de trigo, azúcares añadidos (azúcar invertido), hojuelas de avena de grano entero, fibra de avena, grasa y aceite vegetal, sal yodada, propionato sódico, ácido cítrico, extracto de té verde y extracto de romero. CONTIENE: GLUTEN Y SOYA. PUEDE CONTENER: LECHE, HUEVO, NUEZ, CACAHUATE, COCO, ALMENDRA Y AJONJOLÍ.",
   "orientacion": "Una barra de 40 g aporta aproximadamente 160 kcal, 8.4 g de azúcares añadidos y 3 g de fibra. Para elegir una colación, compara el tamaño de la porción, los azúcares añadidos, las grasas saturadas y la fibra. Considera también los sellos de advertencia del empaque.",
   "fuente": "Bimbo. (s. f.). Bran Frut sabor fresa, 200 g [Etiqueta nutrimental del producto comercializado en México]."
 }
