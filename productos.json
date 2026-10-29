@@ -57,5 +57,26 @@
     "ingredientes": "",
     "orientacion": "Al comparar este producto con otros yogures, revisa la cantidad de proteína, azúcares añadidos, grasas saturadas y el tamaño de la porción. Ningún nutriente por sí solo determina si un alimento es adecuado para ti.",
     "fuente": "Oikos México. (s. f.). Oikos Yogurt Griego Natural sin Azúcar 150 g. Información nutrimental obtenida de la página oficial del producto."
-  }
+  },
+
+"7500810032978": {
+  "producto": "Pan Bimbo Integral 300 g",
+  "marca": "Bimbo",
+  "categoria": "Panes y cereales",
+  "porcion": "100 g",
+  "base": "Por 100 g",
+  "energia": 223,
+  "proteina": 10.8,
+  "carbohidratos": 38.4,
+  "fibra": 6,
+  "azucares": 8.8,
+  "azucares_anadidos": 1.8,
+  "grasas": 2.9,
+  "grasas_saturadas": 0.8,
+  "sodio": 498,
+  "ingredientes": "Harina de trigo integral, levadura, gluten de trigo, azúcares añadidos (azúcar), aceite vegetal (soya), sal yodada, salvado de trigo, lecitina de soya, harina de trigo fermentada y saborizante natural. Contiene gluten y soya. Puede contener leche, huevo y ajonjolí.",
+  "orientacion": "Este pan aporta 6 g de fibra por cada 100 g. Para comparar opciones, revisa la fibra, el sodio y el tamaño de la porción. Ningún alimento por sí solo determina la calidad de tu alimentación.",
+  "fuente": "Bimbo. (2026). Pan Integral 300 g. Información nutrimental e ingredientes obtenidos de la etiqueta física del producto, México."
+}
+
 }
